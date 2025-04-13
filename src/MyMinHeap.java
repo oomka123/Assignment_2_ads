@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class MyMinHeap<T extends Comparable<T>> {
     private Object[] heap;
     private int size;
@@ -85,6 +83,10 @@ public class MyMinHeap<T extends Comparable<T>> {
 
     private void resize() {
         int newCapacity = heap.length * 2;
-        heap = Arrays.copyOf(heap, newCapacity);
+        Object[] newHeap = new Object[newCapacity];
+        for (int i = 0; i < size; i++) {
+            newHeap[i] = heap[i];
+        }
+        heap = newHeap;
     }
 }
